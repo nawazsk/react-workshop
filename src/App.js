@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <h1>React Workshop</h1>
       <hr/>
-      <h2>Pancard Validation</h2>
+      <h2>Pancard Validation Test</h2>
       <form onSubmit={validatePancard}>
           <input className="textInput" placeholder="enter PAN and press enter" type="text" value={pancard} onChange={(e) => setPanCard(e.target.value)}/>
       </form>
