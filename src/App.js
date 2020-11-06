@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import {useState} from 'react';
+import {
+  pancardValidation
+} from './helpers/helpers';
 import './App.css';
 
 function App() {
+  const [pancard, setPanCard] = useState('');
+
+  // console.log(pancardValidation('ABCDE1234F'));
+  const validatePancard = (e) => {
+    e.preventDefault();
+    if(pancardValidation(pancard)) {
+      alert(`${pancard} is a valid PAN Number`)
+    } else {
+      alert('Please enter valid PAN');
+    }
+    
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React Workshop</h1>
+      <hr/>
+      <h2>Pancard Validation</h2>
+      <form onSubmit={validatePancard}>
+          <input className="textInput" placeholder="enter PAN and press enter" type="text" value={pancard} onChange={(e) => setPanCard(e.target.value)}/>
+      </form>
     </div>
   );
 }
